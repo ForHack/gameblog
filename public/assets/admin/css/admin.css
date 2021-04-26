@@ -22195,3 +22195,16 @@ fieldset[disabled][disabled] .dark-edition .has-error .form-control,
 .bd-docs.dark-edition {
   background-color: #fff;
 }
+
+.dropdown-menu  {
+
+  background-color: transparent;
+  box-shadow: none;
+}
+.dropdown-toggle::after {
+  display:  none;
+}
+
+.dropdown-item {
+  margin-left: 0 !important;
+}

@@ -31,12 +31,31 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
+          <li class="nav-item @if(request()->route()->getName() == 'admin.index') active  @endif  ">
             <a class="nav-link" href="{{ route('admin.index') }}">
               <i class="material-icons">dashboard</i>
               <p>Главная</p>
             </a>
           </li>
+
+          <li class="nav-item dropdown @if(request()->route()->getName() == 'categories.index') active  @endif">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+              <i class="material-icons">view_carousel</i>
+              Категории
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ route('categories.index') }}">
+                <i class="material-icons">mood</i>
+                Список категорий
+              </a>
+              <a class="dropdown-item" href="{{ route('categories.create') }}">
+                <i class="material-icons">mood</i>
+                Добавить категорию
+              </a>
+            </div>
+          </li>
+          
+          
           <!-- <li class="nav-item ">
             <a class="nav-link" href="./user.html">
               <i class="material-icons">person</i>
@@ -81,7 +100,9 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Главная страница</a>
+            <a class="navbar-brand" href="javascript:void(0)">
+              @yield('page-title')
+            </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -171,7 +192,7 @@
         <i class="fa fa-cog fa-2x"> </i>
       </a>
       <ul class="dropdown-menu">
-        <li class="header-title"> Sidebar Filters</li>
+        <li class="header-title"> Фильтр цветов</li>
         <li class="adjustments-line">
           <a href="javascript:void(0)" class="switch-trigger active-color">
             <div class="badge-colors ml-auto mr-auto">
@@ -184,7 +205,7 @@
             <div class="clearfix"></div>
           </a>
         </li>
-        <li class="header-title">Images</li>
+        <li class="header-title">Картинки</li>
         <li>
           <a class="img-holder switch-trigger" href="javascript:void(0)">
             <img src="/assets/admin/img/sidebar-1.jpg" alt="">

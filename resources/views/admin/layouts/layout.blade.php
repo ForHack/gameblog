@@ -26,7 +26,7 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <div class="logo"><a href=" {{ route('admin.index') }} " class="simple-text logo-normal">
           GeT_RiGhT
         </a></div>
       <div class="sidebar-wrapper">
@@ -146,6 +146,33 @@
         </div>
       </nav>
       <!-- End Navbar -->
+
+        <div class="container-fluid" style="margin-top: 100px">
+          <div class="row">
+            <div class="col-md-12">
+               
+               @if ($errors->any())
+                 <div class="alert alert-danger">
+                   <ul class="list-unstyled">
+                       @foreach ($errors->all() as $error)
+                           <li> {{ $error }} </li>
+                       @endforeach
+                   </ul>
+                 </div>
+               @endif
+               
+ 
+               @if (session()->has('success'))
+                 <div class="alert alert-success">
+                   {{ session('success') }}
+                 </div>
+               @endif
+
+         
+ 
+            </div>
+          </div>
+        </div>
     
         @yield('content')
 

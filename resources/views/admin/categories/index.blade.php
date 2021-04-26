@@ -2,10 +2,14 @@
 
 @section('page-title', 'Страница категорий')
 
+
+
 @section('content')
+
     
     <div class="content">
-        <a href="#" class="btn btn-primary d-inline-block">Добавить категорию</a>
+
+        <a href="{{ route('categories.create') }}" class="btn btn-primary d-inline-block">Добавить категорию</a>
 
         <div class="card">
             @if (count($categories))
@@ -74,7 +78,7 @@
             @endif
           </div>
 
-          {{ $categories->links() }}
+          {{ $categories->links("pagination::bootstrap-4") }}
 
         </div>
 

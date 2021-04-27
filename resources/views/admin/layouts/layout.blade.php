@@ -67,48 +67,28 @@
               </a>
               <a class="dropdown-item" href="{{ route('tags.create') }}">
                 <i class="material-icons">mood</i>
-                Добавиёь Тег
+                Добавить Тег
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown @if(request()->route()->getName() == 'posts.index') active  @endif">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+              <i class="material-icons">dynamic_feed</i>
+              Посты
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ route('posts.index') }}">
+                <i class="material-icons">mood</i>
+                Список Постов
+              </a>
+              <a class="dropdown-item" href="{{ route('posts.create') }}">
+                <i class="material-icons">mood</i>
+                Добавить Пост
               </a>
             </div>
           </li>
           
-          
-          <!-- <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              <p>Typography</p>
-            </a>
-          </li> -->
-          <!-- <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li> -->
         </ul>
       </div>
     </div>
@@ -275,14 +255,17 @@
   </div>
   
   <!--   Core JS Files   -->
-  <script src="https://unpkg.com/default-passive-events"></script>
+  <!-- <script src="https://unpkg.com/default-passive-events"></script> -->
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="{{ asset('assets/admin/js/admin.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   
   <script>
     $(document).ready(function() {
       $().ready(function() {
+
+    
         $sidebar = $('.sidebar');
 
         $sidebar_img_container = $sidebar.find('.sidebar-background');

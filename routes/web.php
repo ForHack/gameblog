@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\BasketCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,8 @@ Route::get('/', function () {
 Route::group(['prefix' => 'gameadmin',], function() {
   Route::get('/', [MainController::class, 'index'])->name('admin.index');
   Route::resource('/categories', CategoryController::class);
+  Route::get('/category/basket', [BasketCategoryController::class, 'index'])->name('basket.category');
+  // Route::get('/category/basket', function() {
+  //   return view('admin.categories.basket');
+  // })->name('basket.category');
 });

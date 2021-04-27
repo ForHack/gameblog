@@ -9,7 +9,10 @@
     
     <div class="content">
 
+        <div class="links-group d-flex align-items-center">
         <a href="{{ route('categories.create') }}" class="btn btn-primary d-inline-block">Добавить категорию</a>
+        <a href="{{ route('basket.category') }}" class="btn btn-primary d-inline-block ml-3">Корзинка</a>
+        </div>
 
         <div class="card">
             @if (count($categories))
@@ -85,9 +88,12 @@
 
     <script>
 
-        const removeBtn = document.querySelector('.remove-post')
-        removeBtn.addEventListener('click', function() {
-            return confirm('Вы действительно хотите удалить?')
+        const removeBtns = document.querySelectorAll('.remove-post')
+        removeBtns.forEach(removeBtn => {
+                removeBtn.addEventListener('click', function(e) {
+                let isProved = confirm('Вы действительно хотите удалить?') 
+                return isProved ? true : e.preventDefault()
+            })
         })
 
     </script>

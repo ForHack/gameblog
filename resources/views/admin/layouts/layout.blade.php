@@ -54,6 +54,23 @@
               </a>
             </div>
           </li>
+
+          <li class="nav-item dropdown @if(request()->route()->getName() == 'tags.index') active  @endif">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+              <i class="material-icons">label</i>
+              Теги
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{ route('tags.index') }}">
+                <i class="material-icons">mood</i>
+                Список Тегов
+              </a>
+              <a class="dropdown-item" href="{{ route('tags.create') }}">
+                <i class="material-icons">mood</i>
+                Добавиёь Тег
+              </a>
+            </div>
+          </li>
           
           
           <!-- <li class="nav-item ">

@@ -44,7 +44,7 @@
                                         {{ $post->category->title }}
                                     </td>
                                     <td>
-                                        {{ $post->tags }}
+                                        {{ $post->tags->pluck('title')->join(' , ') }}
                                     </td>
                                     <td>
                                         {{ $post->created_at }}

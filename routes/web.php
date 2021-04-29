@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\BasketCategoryController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,10 @@ use App\Http\Controllers\Admin\BasketCategoryController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
-Route::group(['prefix' => 'gameadmin',], function() {
+Route::group(['prefix' => 'gameadmin', 'middleware' => 'admin'], function() {
   Route::get('/', [MainController::class, 'index'])->name('admin.index');
   Route::resource('/categories', CategoryController::class);
   Route::resource('/tags', TagController::class);
@@ -31,3 +32,13 @@ Route::group(['prefix' => 'gameadmin',], function() {
  
   Route::get('/category/basket', [BasketCategoryController::class, 'index'])->name('basket.category');
 });
+
+Route::group(['middleware' => 'guest'], function() {
+  Route::get('/register', [UserController::class, 'create'])->name('register.create');
+  Route::post('/register', [UserController::class, 'store'])->name('register.store');
+  Route::get('/login', [UserController::class, 'loginForm'])->name('login.create');
+  Route::post('/login', [UserController::class, 'login'])->name('login');
+});
+
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout')->middleware('auth');
